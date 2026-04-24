@@ -100,6 +100,7 @@ Example query:
 ```cypher
 MATCH (m:Measurement)-[:HAS_STATE]->(s:State {label: "ANOMALY"})
 RETURN m
+```
 
 This enables flexible querying and experiment diagnostics.
 
