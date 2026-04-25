@@ -166,3 +166,14 @@ Fixed by proper Chart.js update lifecycle
 - Neo4j (optional extension)
 
 ---
+
+
+
+Producer → Kafka → FastAPI → ML Model → WebSocket → Dashboard
+
+
+
+For having a realtime dashboard I recored it as a gif by Installing: [](https://www.screentogif.com/)
+
+An example real-time signal visualization of such system is like
+![](Real_time_control_system.gif)
