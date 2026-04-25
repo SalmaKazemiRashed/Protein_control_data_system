@@ -1,0 +1,5 @@
+numpy
+kafka-python
+torch
+neo4j
+flask
