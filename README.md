@@ -203,7 +203,7 @@ Device signals ↔ EPICS PVs ↔ Your pipeline
 
 First I installed EPICS client
 
-‍‍‍‍‍```bash
+‍‍‍‍‍```Bash
 pip install pyepics
 ```
 
