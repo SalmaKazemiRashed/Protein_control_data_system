@@ -193,13 +193,16 @@ Now we have
 ‍‍‍‍‍```plaintext
 Simulator → Kafka → FastAPI → ML → Dashboard
 ```
+
 With EPICS, we will have:
+
 
 ‍‍‍‍‍```plaintext
 Device signals ↔ EPICS PVs ↔ Your pipeline
 ‍‍‍‍‍```
 
 First I installed EPICS client
+
 ‍‍‍‍‍```bash
 pip install pyepics
 ```
@@ -210,3 +213,4 @@ PROTEIN:ANGLE
 PROTEIN:INTENSITY
 PROTEIN:ANOMALY
 
+producer code should be changed.
