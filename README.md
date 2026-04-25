@@ -197,9 +197,9 @@ Simulator → Kafka → FastAPI → ML → Dashboard
 With EPICS, we will have:
 
 
-‍‍‍‍‍```plaintext
+```plaintext
 Device signals ↔ EPICS PVs ↔ Your pipeline
-‍‍‍‍‍```
+```
 
 First I installed EPICS client
 
