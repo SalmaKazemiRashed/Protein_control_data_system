@@ -172,8 +172,8 @@ Fixed by proper Chart.js update lifecycle
 Producer → Kafka → FastAPI → ML Model → WebSocket → Dashboard
 
 
+To demonstrate the real-time dashboard, I recorded it as a GIF using [ScreenToGif](https://www.screentogif.com/).
 
-For having a realtime dashboard I recored it as a gif by Installing: [](https://www.screentogif.com/)
+An example of the real-time signal visualization is shown below:
 
-An example real-time signal visualization of such system is like
-![](Real_time_control_system.gif)
+![REAL-time control system](./Real_time_control_system.gif)
