@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protein Control System Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h2>Real-Time Control System Signals</h2>
+
+<canvas id="chart"></canvas>
+
+<script>
+window.onload = function () {
+
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Intensity',
+                    data: [],
+                    borderColor: 'blue',
+                },
+                {
+                    label: 'Angle',
+                    data: [],
+                    borderColor: 'green',
+                },
+                {
+                    label: 'Anomaly Score',
+                    data: [],
+                    borderColor: 'red',
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            animation: false,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Time"
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Signal Value"
+                    }
+                }
+            }
+        }
+    });
+
+    const ws = new WebSocket("ws://127.0.0.1:8000/ws");
+
+    ws.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+
+        chart.data.labels.push(new Date().toLocaleTimeString());
+
+        chart.data.datasets[0].data.push(data.intensity);
+        chart.data.datasets[1].data.push(data.angle);
+        chart.data.datasets[2].data.push(data.anomaly_score);
+
+        if (chart.data.labels.length > 50) {
+            chart.data.labels.shift();
+            chart.data.datasets.forEach(d => d.data.shift());
+        }
+
+        chart.update();
+    };
+
+    ws.onclose = function() {
+        console.log("WebSocket closed → reconnecting");
+        setTimeout(() => location.reload(), 2000);
+    };
+};
+</script>
+
+</body>
+</html>
