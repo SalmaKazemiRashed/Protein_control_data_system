@@ -183,3 +183,30 @@ An example of the real-time signal visualization is shown below:
 This system implements a real-time control and monitoring pipeline that simulates experimental protein data, streams it through Kafka, processes it with a machine learning model for anomaly detection, and visualizes the results live in a web-based dashboard. The producer generates continuous signals such as angle and intensity, which are consumed by a FastAPI service, enriched with anomaly scores, and broadcast via WebSockets to a frontend interface displaying dynamic plots. The setup demonstrates how distributed components—data generation, streaming, processing, and visualization—can be integrated into a coherent, low-latency control system similar to those used in large-scale scientific facilities.
 
 The model is trained on historical normal operating data to learn typical signal behavior, and is then applied to real-time streaming data to detect anomalies by identifying deviations from the learned patterns.
+
+## EPICS integration
+
+For further steps I decided to integrate EPICS to this pipeline:
+
+Now we have
+
+‍‍‍‍‍```plaintext
+Simulator → Kafka → FastAPI → ML → Dashboard
+```
+With EPICS, we will have:
+
+‍‍‍‍‍```plaintext
+Device signals ↔ EPICS PVs ↔ Your pipeline
+‍‍‍‍‍```
+
+First I installed EPICS client
+‍‍‍‍‍```bash
+pip install pyepics
+```
+
+in EPICS Everything is a PV (Process Variable)
+Example:
+PROTEIN:ANGLE
+PROTEIN:INTENSITY
+PROTEIN:ANOMALY
+
