@@ -153,3 +153,16 @@ Fixed using reconnect + safe broadcasting
 
 Chart freezing
 Fixed by proper Chart.js update lifecycle
+
+
+
+## 🧠 updated Tech Stack
+
+- Python (FastAPI, aiokafka)
+- Kafka
+- Chart.js
+- Docker
+- Machine Learning (PyTorch / simple model)
+- Neo4j (optional extension)
+
+---
