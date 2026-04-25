@@ -1,1 +1,9 @@
-graph/.env
+.env
+app/__pycache__/
+gif_maker/
+graph/__pycache__/
+ml/__pycache__/
+ml/model.pth
+simulator/__pycache__/
+streaming/__pycache__/
+test_graph.py
