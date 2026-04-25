@@ -190,7 +190,7 @@ For further steps I decided to integrate EPICS to this pipeline:
 
 Now we have
 
-‍‍‍‍‍```plaintext
+```plaintext
 Simulator → Kafka → FastAPI → ML → Dashboard
 ```
 
