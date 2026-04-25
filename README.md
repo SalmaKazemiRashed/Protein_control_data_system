@@ -109,3 +109,47 @@ Provides a simple API endpoint for real-time monitoring.
 
 ---
 
+
+##  How to run full system (Docker + app)
+🐳 Step 1 — Start Kafka + Neo4j (removed it for this version)
+```bash
+docker compose up -d
+```
+
+Check:
+```bash
+docker ps
+```
+
+🚀 Step 2 — Run producer
+```bash
+python streaming/async_producer.py
+```
+
+⚡ Step 3 — Run FastAPI
+
+```bash
+uvicorn app.main:app --reload
+```
+
+🌐 Step 4 — Open dashboard
+```plaintext
+http://127.0.0.1:8000
+```
+
+
+
+## ⚠️ Known Issues Fixed
+
+Kafka connection refused
+Fixed by exposing Docker port 9092
+
+Neo4j authentication failure
+Fixed by resetting credentials and .env loading
+
+
+WebSocket disconnect
+Fixed using reconnect + safe broadcasting
+
+Chart freezing
+Fixed by proper Chart.js update lifecycle
