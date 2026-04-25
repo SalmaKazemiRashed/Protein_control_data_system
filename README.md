@@ -177,3 +177,7 @@ To demonstrate the real-time dashboard, I recorded it as a GIF using [ScreenToGi
 An example of the real-time signal visualization is shown below:
 
 ![REAL-time control system](./Real_time_control_system.gif)
+
+<p align="center">
+  <img src="assets/Real_time_control_system.gif" width="700"/>
+</p>
