@@ -178,6 +178,3 @@ An example of the real-time signal visualization is shown below:
 
 ![REAL-time control system](./Real_time_control_system.gif)
 
-<p align="center">
-  <img src="Real_time_control_system.gif" width="700"/>
-</p>
