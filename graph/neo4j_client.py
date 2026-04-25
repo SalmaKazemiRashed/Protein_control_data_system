@@ -4,8 +4,10 @@ from dotenv import load_dotenv
 
 # Load .env file
 load_dotenv()
-print(os.getenv("NEO4J_PASSWORD"))
-      
+
+
+print("NEO4J USER:",os.getenv("NEO4J_USER"))
+print("NEO4J PASSWORD:", os.getenv("NEO4J_PASSWORD"))
 
 class GraphHandler:
     def __init__(self):
@@ -20,7 +22,21 @@ class GraphHandler:
             uri,
             auth=(user, password)
         )
-
+    def store_measurement(self, data):
+        with self.driver.session() as session:
+            session.run("""
+            CREATE (m:Measurement {
+                angle: $angle,
+                intensity: $intensity,
+                anomaly_score: $score,
+                state: $state
+            })
+            """,
+            angle=data["angle"],
+            intensity=data["intensity"],
+            score=data["anomaly_score"],
+            state=data["state"])
+            
     def close(self):
         self.driver.close()
 
@@ -50,3 +66,5 @@ class GraphHandler:
         timestamp=data["timestamp"],
         score=data["anomaly_score"],
         state=data["state"])
+
+    
